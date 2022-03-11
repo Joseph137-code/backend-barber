@@ -17,6 +17,9 @@ app.use( express.json())
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/worker', require('./routes/Worker'))
 app.use('/api/date', require('./routes/Date'))
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../public", "index.html"));
+});
 
 
 app.listen(process.env.PORT, () => {
